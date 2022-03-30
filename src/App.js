@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Input from './Input';
+import GameBoard from './GameBoard';
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <h1>_HangMan_</h1>
-      {!isPlaying ? <Input saveWord={saveWord}/> : <span>{word}</span>}
+      {!isPlaying ? <Input saveWord={saveWord}/> : <GameBoard word={word}/> }  
     </div>
   );
 }
