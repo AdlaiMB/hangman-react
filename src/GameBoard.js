@@ -12,6 +12,11 @@ function GameBoard({word}) {
         
         const letter = event.key;
 
+        // check to see if we have gussed incorrectly to many times
+        if (layout.mistakes >= 6) { 
+            return;
+        }
+
         if(!word.includes(letter)) {
 
             const mistakes = ++layout.mistakes;
@@ -19,7 +24,6 @@ function GameBoard({word}) {
             if (mistakes >= 6 ) {
 
                 alert("Failed"); // this is where we will display that the game is over
-                return;
 
             }
 
