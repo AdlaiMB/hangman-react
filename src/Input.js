@@ -1,4 +1,6 @@
 import { useState } from "react";
+import btnImg from './btnImg.svg';
+import './Input.css';
 
 function Input({saveWord}) {
 
@@ -19,10 +21,10 @@ function Input({saveWord}) {
     }
 
     return (
-        <>
-        <input onChange={updateWord} type="text" minlenght="1" placeholder="Enter a word..." required/>
-        <button onClick={startGame}>Start Game</button>
-        </>
+        <div className="Input">
+            <input onChange={updateWord} type="text" minlenght="1" placeholder="Enter a word" required/>
+            <button onClick={startGame}><img src={btnImg}></img></button>
+        </div>
     );
 }
 
