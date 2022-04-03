@@ -23,7 +23,7 @@ function Input({saveWord}) {
     return (
         <div className="Input">
             <input onChange={updateWord} type="text" minlenght="1" placeholder="Enter a word" required/>
-            <button onClick={startGame}><img src={btnImg}></img></button>
+            <button onClick={startGame}><img src={btnImg} alt=""></img></button>
         </div>
     );
 }
