@@ -1,0 +1,32 @@
+.GameBoard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.Blanks {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.word {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 8rem;
+    font-size: 2rem;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid black;
+}

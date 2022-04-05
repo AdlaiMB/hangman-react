@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
+import './GameBoard.css';
 
 function GameBoard({word}) {
 
-    // function to check if a char is a letter using regex
-    const isChar = (char) => {
-        return (/[a-zA-Z]/).test(char);
-    };
+    // function to add all chars to our chars set
+    const setChars = (chars) => { 
+
+        for (let wrd of word) {
+
+            for (let char of wrd){
+
+                chars.add(char);
+            }
+        }
+
+    }
 
     // function to check if we have finished the game
     const finished = (set1, set2) => {
@@ -46,7 +55,13 @@ function GameBoard({word}) {
         }
         
         const correctGuesses = layout.correctGuesses.add(letter);
-        const blanks = [...layout.blanks].map((elem, indx) => word[indx] === letter ? <span key={indx}>{letter }</span> : elem);
+        const blanks = [...layout.blanks].map((wrd, wrdIndx) => {
+            
+            const chars = [...wrd.props.children].map((char, charIndx) => word[wrdIndx][charIndx] === letter ? <div className="letter">{letter}</div> : char);
+            
+            return <div className="word" key={wrdIndx}>{chars}</div>;
+
+        });
 
         setLayout({...layout, correctGuesses, blanks});
 
@@ -62,9 +77,18 @@ function GameBoard({word}) {
 
     },);
 
-    // create our blanks based on our word and a set for our chars
-    const blanks = [...word].map((char, indx) => isChar(char) ? <span key={indx}>_ </span>: <span key={indx}>---</span>);
-    const chars = new Set(word);
+    // set up our state for the gameboard 
+    const blanks = word.map((wrd, wrdIndx) => {
+
+        const chars = [...wrd].map((char, charIndx) => {
+            return <div className="letter" key={charIndx}></div>
+        });
+
+        return <div className="word" key={wrdIndx}>{chars}</div>;
+    });
+
+    const chars = new Set();
+    setChars(chars);
     const correctGuesses = new Set();
     const mistakes = 0;
 
@@ -76,14 +100,13 @@ function GameBoard({word}) {
     const [layout, setLayout] = useState({blanks, chars, correctGuesses, mistakes});
 
     return (
-        <div>
-            <span>
+        <div className="GameBoard">
+            <div className="GameState">
                 tries: {layout.mistakes}
-            </span>
-            <br/>
-            <span>
+            </div>
+            <div className="Blanks">
                 {layout.blanks} 
-            </span>
+            </div>
         </div>
     );
 }

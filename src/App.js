@@ -6,14 +6,14 @@ import GameBoard from './GameBoard';
 function App() {
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const word = window.localStorage.getItem("word");
+  const word = JSON.parse(window.localStorage.getItem("word"));
 
   // check for a non empty word and update playing state if we have a word
   const saveWord = (word) => {
 
     if (word.length > 0){
 
-      window.localStorage.setItem("word", word);
+      window.localStorage.setItem("word", JSON.stringify(word.split(" ")));
       setIsPlaying(true);
 
     } else { 
