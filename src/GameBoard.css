@@ -3,11 +3,14 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: -240px;
 }
+
 .Blanks {
     display: flex;
     flex-wrap: wrap;
     width: 80%;
+    animation: dropInBlanks 8s ease forwards;
 }
 
 .word {
@@ -29,4 +32,17 @@
     margin-right: 8px;
     padding-bottom: 5px;
     border-bottom: 3px solid black;
+}
+
+@keyframes dropInBlanks{
+   0% {
+       opacity: 0;
+       transform: translateY(-100%);
+   } 
+
+   30%, 100% {
+       opacity: 1;
+       transform: translateY(0);
+   }
+
 }

@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <h1>_HangMan_</h1>
       <div className="Game">
-          {!isPlaying ? <Input saveWord={saveWord}/> : <GameBoard word={word}/> }  
+        {!isPlaying ? <Input saveWord={saveWord}/> : <GameBoard word={word}/>}
       </div>
     </div>
   );

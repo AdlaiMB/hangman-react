@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import './GameBoard.css';
+import Base from './Base';
 
 function GameBoard({word}) {
 
@@ -101,9 +102,8 @@ function GameBoard({word}) {
 
     return (
         <div className="GameBoard">
-            <div className="GameState">
-                tries: {layout.mistakes}
-            </div>
+            mistakes: {layout.mistakes}
+            <Base/>
             <div className="Blanks">
                 {layout.blanks} 
             </div>
