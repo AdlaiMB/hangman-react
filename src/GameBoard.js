@@ -46,12 +46,6 @@ function GameBoard({word}) {
 
             const mistakes = ++layout.mistakes;
 
-            if (mistakes >= 6 ) {
-
-                alert("Failed"); // this is where we will display that the game is over
-
-            }
-
             setLayout({...layout, mistakes});
         }
         
@@ -102,8 +96,7 @@ function GameBoard({word}) {
 
     return (
         <div className="GameBoard">
-            mistakes: {layout.mistakes}
-            <Base/>
+            <Base mistakes={layout.mistakes}/>
             <div className="Blanks">
                 {layout.blanks} 
             </div>

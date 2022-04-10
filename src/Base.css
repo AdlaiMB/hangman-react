@@ -10,6 +10,10 @@
     animation-delay: calc(var(--order) * 200ms);
 }
 
+.body {
+    animation: dropInBase 1s linear forwards;
+}
+
 @keyframes dropInBase {
     20% {
         opacity: 0;
