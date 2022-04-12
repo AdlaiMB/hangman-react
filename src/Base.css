@@ -11,7 +11,7 @@
 }
 
 .body {
-    animation: dropInBase 1s linear forwards;
+    animation: dropInBase 0s linear forwards;
 }
 
 @keyframes dropInBase {

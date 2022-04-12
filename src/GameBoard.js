@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import './GameBoard.css';
 import Base from './Base';
+import Incorrect from "./Incorrect";
 
 function GameBoard({word}) {
 
@@ -37,14 +38,18 @@ function GameBoard({word}) {
         
         const letter = event.key;
 
+        if (layout.mistakes.has(letter)) {
+            return;
+        }
+
         // check to see if we have gussed incorrectly to many times or we have filled in all the blanks
-        if (layout.mistakes >= 6 || finished(layout.chars, layout.correctGuesses)) { 
+        if (layout.mistakes.size >= 6 || finished(layout.chars, layout.correctGuesses)) { 
             return;
         }
 
         if(!layout.chars.has(letter)) {
 
-            const mistakes = ++layout.mistakes;
+            const mistakes = layout.mistakes.add(letter);
 
             setLayout({...layout, mistakes});
         }
@@ -76,7 +81,7 @@ function GameBoard({word}) {
     const blanks = word.map((wrd, wrdIndx) => {
 
         const chars = [...wrd].map((char, charIndx) => {
-            return <div className="letter" key={charIndx}></div>
+            return <div className="letter" key={charIndx}></div>;
         });
 
         return <div className="word" key={wrdIndx}>{chars}</div>;
@@ -85,7 +90,7 @@ function GameBoard({word}) {
     const chars = new Set();
     setChars(chars);
     const correctGuesses = new Set();
-    const mistakes = 0;
+    const mistakes = new Set();
 
     // removes white spaces from set
 
@@ -96,7 +101,8 @@ function GameBoard({word}) {
 
     return (
         <div className="GameBoard">
-            <Base mistakes={layout.mistakes}/>
+            <Base mistakes={layout.mistakes.size}/>
+            <Incorrect mistakes={layout.mistakes}/>
             <div className="Blanks">
                 {layout.blanks} 
             </div>
