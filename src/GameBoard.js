@@ -57,7 +57,7 @@ function GameBoard({word}) {
         const correctGuesses = layout.correctGuesses.add(letter);
         const blanks = [...layout.blanks].map((wrd, wrdIndx) => {
             
-            const chars = [...wrd.props.children].map((char, charIndx) => word[wrdIndx][charIndx] === letter ? <div className="letter">{letter}</div> : char);
+            const chars = [...wrd.props.children].map((char, charIndx) => word[wrdIndx][charIndx] === letter ? <div className="letter" key={charIndx}>{letter}</div> : char);
             
             return <div className="word" key={wrdIndx}>{chars}</div>;
 
