@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/AdlaiMB/hangman-react/static/css/main.df74e8fe.css",
+    "main.js": "/AdlaiMB/hangman-react/static/js/main.f0c03c84.js",
+    "static/js/787.20ace30e.chunk.js": "/AdlaiMB/hangman-react/static/js/787.20ace30e.chunk.js",
+    "static/media/btnImg.svg": "/AdlaiMB/hangman-react/static/media/btnImg.54fedde97faa30e8afc7edb12b7a48fd.svg",
+    "index.html": "/AdlaiMB/hangman-react/index.html",
+    "main.df74e8fe.css.map": "/AdlaiMB/hangman-react/static/css/main.df74e8fe.css.map",
+    "main.f0c03c84.js.map": "/AdlaiMB/hangman-react/static/js/main.f0c03c84.js.map",
+    "787.20ace30e.chunk.js.map": "/AdlaiMB/hangman-react/static/js/787.20ace30e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.df74e8fe.css",
+    "static/js/main.f0c03c84.js"
+  ]
+}
